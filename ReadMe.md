@@ -55,11 +55,11 @@ The Game Between Users and Adversaries (GUA) is a game with the Owners deciding 
   - **Attack:** eavesdrop/track to infer locations; this has an attack.
   - **Abstain:** don’t attack; no cost, no gain.
 
-##### Payoff (in words)
-- **Owner protects, adversary attacks:** the owner keeps service utility but pays the protection cost, the adversary gains from the attempt but pays the attack.
-- **Owner protects, adversary abstains:** the owner enjoys utility but still pays the protection cost, the adversary gets nothing.
-- **Owner defects, adversary attacks:** the owner doesn’t pay for protection but loses privacy/utility to the attack the adversary gains minus their attack.
-- **Both do nothing:** neither side gains nor pays any.
+##### Payoff
+- Owner protects, adversary attacks: the owner keeps service utility but pays the protection cost, the adversary gains from the attempt but pays the attack.
+- Owner protects, adversary abstains: the owner enjoys utility but still pays the protection cost, the adversary gets nothing.
+- Owner defects, adversary attacks: the owner doesn’t pay for protection but loses privacy/utility to the attack the adversary gains minus their attack.
+- Both do nothing: neither side gains nor pays any.
 
 ##### Equilibrium Analysis
 - I believe there is a Nash equilibrium **(Owner protects, Adversary abstains)** or **(Owner defects, Adversary abstains)** which is caused by the relative sizes of protection and attack costs.
