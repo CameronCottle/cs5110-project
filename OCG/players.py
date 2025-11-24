@@ -10,15 +10,15 @@ class Passenger:
 
 # the taxi service is the data collector
 class TaxiService:
-    def __init__(self):
-        self.taxi_location = 0.0
+    def __init__(self, taxi_location=0.0):
+        self.taxi_location = taxi_location
 
     # calculate the distance cost for a passenger
-    def distance_cost(self, p: Passenger) -> float:
+    def distance_cost(self, p):
         return abs(p.location - self.taxi_location)
 
     # calculate the score for a passenger
-    def score(self, p: Passenger) -> float:
+    def score(self, p):
         """Welfare / quality function: value - distance cost."""
         return p.value - self.distance_cost(p)
 
