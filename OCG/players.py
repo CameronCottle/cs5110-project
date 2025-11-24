@@ -1,13 +1,15 @@
 from dataclasses import dataclass
 import random
 
+# passengers are the data owners
 @dataclass
 class Passenger:
     id: int
     value: float
     location: float
 
-class TaxiGame:
+# the taxi service is the data collector
+class TaxiService:
     def __init__(self):
         self.taxi_location = 0.0
 
