@@ -7,7 +7,7 @@ Each team member independently implements one game model, then we compile the re
 
 ## Project Overview
 
-- **OOG — Owner vs. Owner** - TBD
+- **OOG — Owner vs. Owner** - Gavin
 - **OCG — Owner vs. Collector** - Cameron
 - **OAG — Owner vs. Adversary** - TBD
 - **CAG — Collector vs. Adversary** - TBD
