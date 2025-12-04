@@ -125,3 +125,55 @@ This function takes the equilibrium strategies and the game and turns them into 
 - How often ADV attacks (y*)
 - The probability of a successful deanonymization (“leakage”)
 - Expected DC and ADV payoffs
+
+The inputs are 
+- aggregation threshold p
+- model parameters
+- a 2x2 payoff matrix for (DC, ADV)
+- an interior mixed equilibrium (x*, y*)
+
+Finally, this function returns (plus p, x*, y*) as a dict.
+
+### params.py
+This file defines all parameters that describe the economics and privacy behavior of the CAG.
+
+#### GameParams class
+This class stores every numeric component needed by the payoff formulas in mechanisms.py.
+- advValueSuccess: Value obtained by the adversary from a successful deanonymization attack. Higher this value is, the more incentive the adv has to attack.
+- advAttackCost: Cost incurred by the adversary to launch an attack (“Exploit”). If cost is greater than or equal to reward, the adv won't attack.
+- successProbTransparent: Probability an attack succeeds if the data collector does not protect (DC plays T). Think of this as the baseline vulnerability level of the system.
+- dcLossOnBreach: Loss suffered by the Data Collector when an attack succeeds.
+- dcPrivacyBenefitTransparent: Baseline privacy benefit when the Data Collector does not protect (T).
+- dcCostTransparent: Processing cost when DC plays T. This is typically low because transparency is cheap.
+
+The following parameters define how the system changes when p increases.
+- alpha: Controls how fast attack success under protection decreases with p.
+- beta: Controls how fast attack success under protection decreases with p.
+- gamma: Controls how fast the cost of protection grows with p.
+
+The following are the methods contains in params.py:
+- successProbProtected(self, p): Probability an adversary succeeds when the DC protects using threshold p.
+- dcPrivacyBenefitProtected(self, p): Privacy benefit increases linearly with aggregation threshold p.
+- dcCostProtected(self, p): Protecting user privacy gets more expensive as p increases.
+
+### players.py
+This is the file where the players are defined (shocker I know). The players for this game are data collectors and adversaries.
+
+Note that players.py does not compute payoffs or equilibrium.
+It simply defines who the players are and what strategy choices they can make.
+
+At the top of the file I defined strong type hints. This just makes the code safer and easier to read.
+
+#### DataCollector class
+This class represents the trusted data collector, whose job is to:
+- Aggregate user requests
+- Provide privacy via a fixed threshold p
+- Choose between P (Protect) and T (Transparent)
+
+#### Adversary class
+This class represents the attacker who:
+- Attempts deanonymization (E)
+- Or chooses not to attack (T)
+
+#### choose_action(self, x)
+This function lets you simulate the game dynamics rather than just compute equilibria.
