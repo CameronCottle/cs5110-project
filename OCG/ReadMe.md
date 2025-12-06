@@ -20,7 +20,7 @@ This game is represented as an online taxi-hailing system with many passengers a
 - If ε is small, there is a large amount of privacy, lots of randomess, and the results are noisy
 - If ε is large there is little privacy and the winner is strictly determined by their value.
 
-## The machanism
+## The mechanism
 - The mechanism is used by the platform to determine the winner of the game, aka who gets a taxi sent to them
 - The mechanism uses VCG to encourage users to tell the truth about their location. Remeber that the best strategy in a VCG style auction is to bid your real price.
 - The mechanism uses exponential DP to ensure privacy.
